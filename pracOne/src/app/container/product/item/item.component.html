@@ -1,0 +1,13 @@
+ <div class="container">
+    <div class="card mb-4 shadow-sm " style="height: 500px;width: 300px">
+      <span class="text-bg-primary" *ngIf="product.discount > 0">{{'$'+product.discount}}</span>
+      <img class="card-img-top w-25 h-25" [src]="product.image" alt="Product Image">
+      <div class="card-body">
+        <p class="card-text">Name: {{ product.name }}</p>
+        <p class="card-text">Price: {{ product.price }}</p>
+        <p class="card-text" [ngStyle]="{fontWeight:'bold',color:product.is_in_inventory?'green':'red'}">
+          {{ product.is_in_inventory ? "Available in Stock" : "Not Available in Stock" }}
+        </p>
+      </div>
+    </div>
+  </div>
