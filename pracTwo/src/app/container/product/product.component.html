@@ -1,0 +1,38 @@
+<!--<div>-->
+<!--  <h2>{{title}} PRODUCT LIST</h2>-->
+
+<!--  <img [src]="product.image">-->
+<!--  <p>Name : {{'$'+product.name}}</p>-->
+<!--  <p>Price : {{product.price}}</p>-->
+<!--  <p>Color : {{product.color}}</p>-->
+<!--  <p>Discount Price : {{ getDiscountPrice().toFixed(2)}}</p>-->
+<!--  <p>{{product.inStock>0 ? 'Only '+product.inStock+'item left':'Not in Stock'}}</p>-->
+
+<!--  <button (click)="incrementCartValue()">+</button>-->
+<!--  <span>{{count}}</span>-->
+<!--  <button (click)="decrementCartValue()">-</button>-->
+<!--  <br><br>-->
+
+<!--  &lt;!&ndash;when we use disabled,hidden,checked for property bind&ndash;&gt;-->
+<!--  <button [disabled]="!(product.inStock>0)">Buy Now</button>-->
+
+<!--  <input [value]="author" (input)="onChangeAuthor($event)"><br>-->
+<!--  <p>name={{author}}</p>-->
+<!--</div>-->
+<div>
+  <app-filter
+    [all]="totalProductCount"
+    [inStock]="totalProductInStock"
+    [outOfStock]="totalProductOutStock"
+    (selectedFilterRadioBtnChanged)="onFilterChange($event)">
+
+  </app-filter>
+
+  <div class="container d-flex mt-5">
+    <div *ngFor="let item of products">
+<!-- *ngIf="selectedFilterRadioBtn==='all' || item.is_in_inventory.toString()===selectedFilterRadioBtn "-->
+      <app-item  [product]="item" *ngIf="searchText === '' || item.name.toLowerCase().includes(searchText)"></app-item>
+    </div>
+  </div>
+
+</div>
