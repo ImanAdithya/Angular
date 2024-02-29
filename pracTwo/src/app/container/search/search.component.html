@@ -1,7 +1,7 @@
 <div class="ekart--search--product">
   <!--NgModel is Two way data bind-->
-  <input class="ekart-search-product-input">
-  <button class="btn btn-search">Search</button>
+  <input class="ekart-search-product-input" #searchInput>
+  <button class="btn btn-search" (click)="updateSearchText(searchInput)">Search</button>
 </div>
 
 <div class="ekart-search-result-for">

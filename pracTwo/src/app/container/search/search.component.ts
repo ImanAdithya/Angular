@@ -16,8 +16,10 @@ export class SearchComponent {
   }
 
   //did not want when we use ngModel
-  updateSearchText(event: any) {
-      this.searchText=event.target.value;
+  updateSearchText(input:HTMLInputElement) {
+      //this.searchText=event.target.value;
+    this.searchText=input.value;
+    this.searchTextChanged.emit(this.searchText);
   }
 
 }

@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {Product} from "../../model/product";
 
 @Component({
   selector: 'product',
@@ -45,6 +46,10 @@ export class ProductComponent {
 
   listOfString:string[]=["Mark","Steve","Iman","Ushan","Sathin"]
 
+
+
+  selectedProduct:Product;
+
   products=[
     {
       id:1,
@@ -76,6 +81,15 @@ export class ProductComponent {
     {
       id:4,
       name:'Iphone 15',
+      price:'$130',
+      item_left:9,
+      image:'assets/iphone.jpeg',
+      discount:0,
+      is_in_inventory:true
+    },
+    {
+      id:5,
+      name:'Samsung',
       price:'$130',
       item_left:9,
       image:'assets/iphone.jpeg',
